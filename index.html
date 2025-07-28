@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <title>3LEVELS | Empowering Growth</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="3LEVELS_logo_favicon.png" type="image/png" />
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
+      background: #f9f9f9;
       color: #111;
     }
+
     nav {
       background: #000;
       padding: 15px;
@@ -22,54 +23,85 @@
       margin: 0 20px;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
     }
+    nav a:hover {
+      color: #00ccff;
+    }
+
     header {
-      background: #111;
+      background: linear-gradient(to right, #000, #1a1a1a);
       color: #fff;
       padding: 60px 20px;
       text-align: center;
     }
+
+    .logo {
+      width: 220px;
+      max-width: 90%;
+      margin-bottom: 20px;
+    }
+
     header h1 {
       font-size: 48px;
       margin-bottom: 10px;
+      letter-spacing: 2px;
     }
+
     header p {
       font-size: 20px;
       max-width: 600px;
       margin: 0 auto;
+      color: #ccc;
     }
+
     section {
       padding: 60px 20px;
       max-width: 1000px;
       margin: 0 auto;
     }
+
     section h2 {
-      font-size: 28px;
-      color: #222;
-      margin-bottom: 10px;
+      font-size: 32px;
+      color: #111;
+      border-bottom: 3px solid #00ccff;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
     }
+
     section p {
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.7;
+      margin-bottom: 20px;
     }
+
     .cta {
       text-align: center;
       margin-top: 40px;
     }
+
     .cta a {
-      background: #000;
-      color: #fff;
+      background: #00ccff;
+      color: #000;
       padding: 15px 30px;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 5px;
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
     }
-    footer {
+
+    .cta a:hover {
       background: #000;
       color: #fff;
+    }
+
+    footer {
+      background: #000;
+      color: #aaa;
       text-align: center;
       padding: 20px;
       margin-top: 60px;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -83,6 +115,7 @@
   </nav>
 
   <header>
+    <img src="3LEVELS_logo.png" alt="3LEVELS Logo" class="logo" />
     <h1>3LEVELS</h1>
     <p>Fueling growth through vision, structure, and execution.</p>
   </header>
@@ -105,15 +138,15 @@
   <section>
     <h2>Our 3 Levels of Impact</h2>
 
-    <p><strong>Level 1: Business Consulting </strong><br />
+    <p><strong>Level 1: Business Consulting</strong><br />
       Providing expert guidance in leadership, strategy, and compliance — especially for veterans, minority founders, and early-stage entrepreneurs.
     </p>
 
-    <p><strong>Level 2: Public Partnerships </strong><br />
+    <p><strong>Level 2: Public Partnerships</strong><br />
       Building powerful business relationships through public and private partnerships that unlock endless opportunities.
     </p>
 
-    <p><strong>Level 3: Digital Launch </strong><br />
+    <p><strong>Level 3: Digital Launch</strong><br />
       Equipping startups with brand identity, content systems, and launch-ready marketing to get seen and scale fast.
     </p>
   </section>
@@ -128,6 +161,3 @@
 
 </body>
 </html>
-
-
-
