@@ -7,6 +7,7 @@
   <style>
     :root {
       --blue: #0077cc;
+      --aqua: #00c2ff;
       --orange: #ff5e3a;
       --dark: #1b1f24;
       --bg: #f9f9fb;
@@ -23,25 +24,44 @@
       color: var(--text);
     }
 
+    /* ===== Navigation Bar ===== */
     nav {
-      background: var(--dark);
+      background: #002244;
       padding: 15px;
       text-align: center;
     }
 
     nav a {
-      color: #fff;
+      color: var(--aqua);
       margin: 0 20px;
       text-decoration: none;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 17px;
+      letter-spacing: 0.5px;
+      position: relative;
       transition: color 0.3s ease;
     }
 
-    nav a:hover {
-      color: var(--orange);
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: var(--orange);
+      transition: width 0.3s ease;
+      margin: auto;
+      margin-top: 5px;
     }
 
+    nav a:hover {
+      color: #fff;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== Header ===== */
     header {
       background: #fff;
       text-align: center;
@@ -54,6 +74,7 @@
       max-width: 95%;
     }
 
+    /* ===== Content Section ===== */
     .content-section {
       background: var(--section);
       padding: 60px 20px;
@@ -79,6 +100,7 @@
       margin-bottom: 18px;
     }
 
+    /* ===== CTA Button ===== */
     .cta {
       text-align: center;
       margin-top: 50px;
@@ -101,6 +123,7 @@
       color: #fff;
     }
 
+    /* ===== Footer ===== */
     footer {
       background: var(--footer);
       color: #222;
@@ -119,7 +142,7 @@
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- ===== Navigation ===== -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -127,12 +150,12 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- Header -->
+  <!-- ===== Header with Logo ===== -->
   <header>
     <img src="3LEVELS2_logo_transparent.png" alt="3LEVELS Logo" class="logo" />
   </header>
 
-  <!-- Main Content -->
+  <!-- ===== Main Content Section with Color ===== -->
   <div class="content-section">
     <div class="content-inner">
       <section>
@@ -167,12 +190,12 @@
     </div>
   </div>
 
-  <!-- CTA -->
+  <!-- ===== CTA Button ===== -->
   <div class="cta">
     <a href="contact.html">Let’s Build Something Together</a>
   </div>
 
-  <!-- Footer -->
+  <!-- ===== Footer ===== -->
   <footer>
     <p>© 2025 3LEVELS LLC — All rights reserved.</p>
   </footer>
