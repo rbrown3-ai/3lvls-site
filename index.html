@@ -5,7 +5,6 @@
   <title>3LEVELS | Empowering Growth</title>
   <link rel="icon" href="3LEVELS_logo_favicon.png" type="image/png" />
   <style>
-    /* ===== Base Reset & Fonts ===== */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -16,7 +15,7 @@
 
     /* ===== Navigation Bar ===== */
     nav {
-      background: #000;
+      background: #002244; /* deep navy */
       padding: 15px;
       text-align: center;
     }
@@ -48,14 +47,18 @@
       margin-bottom: 0;
     }
 
-    /* ===== Section Layout ===== */
-    section {
+    /* ===== Colored Content Section ===== */
+    .content-section {
+      background: #eaf6ff;
       padding: 60px 20px;
+    }
+
+    .content-inner {
       max-width: 1000px;
       margin: 0 auto;
     }
 
-    section h2 {
+    .content-section h2 {
       font-size: 32px;
       color: #000;
       border-left: 5px solid #00ccff;
@@ -63,7 +66,7 @@
       margin-bottom: 20px;
     }
 
-    section p {
+    .content-section p {
       font-size: 17px;
       line-height: 1.7;
       color: #444;
@@ -95,8 +98,8 @@
 
     /* ===== Footer ===== */
     footer {
-      background: linear-gradient(to right, #00ccff, #0066cc);
-      color: #fff;
+      background: #e0ecf5;
+      color: #333;
       text-align: center;
       padding: 30px 20px;
       font-size: 15px;
@@ -125,39 +128,40 @@
     <img src="3LEVELS2_logo_transparent.png" alt="3LEVELS Logo" class="logo" />
   </header>
 
-  <!-- ===== Who We Are ===== -->
-  <section>
-    <h2>Who We Are</h2>
-    <p>
-      3LEVELS LLC is a multi-tiered business incubator founded by three brothers with a mission to unleash entrepreneurs and small businesses. 
-      Through strategic support, digital tools, and powerful partnerships, we help visionaries build something real.
-    </p>
-  </section>
+  <!-- ===== Main Content Section with Color ===== -->
+  <div class="content-section">
+    <div class="content-inner">
+      <section>
+        <h2>Who We Are</h2>
+        <p>
+          3LEVELS LLC is a multi-tiered business incubator founded by three brothers with a mission to unleash entrepreneurs and small businesses. 
+          Through strategic support, digital tools, and powerful partnerships, we help visionaries build something real.
+        </p>
+      </section>
 
-  <!-- ===== Core Values ===== -->
-  <section>
-    <h2>Our Core Values</h2>
-    <p><strong>Leadership</strong> – Guiding with clarity, confidence, and purpose.</p>
-    <p><strong>Resilience</strong> – Overcoming obstacles through grit and commitment.</p>
-    <p><strong>Empowerment</strong> – Arming others with tools to succeed and grow.</p>
-  </section>
+      <section>
+        <h2>Our Core Values</h2>
+        <p><strong>Leadership</strong> – Guiding with clarity, confidence, and purpose.</p>
+        <p><strong>Resilience</strong> – Overcoming obstacles through grit and commitment.</p>
+        <p><strong>Empowerment</strong> – Arming others with tools to succeed and grow.</p>
+      </section>
 
-  <!-- ===== 3 Levels ===== -->
-  <section>
-    <h2>Our 3 Levels of Impact</h2>
+      <section>
+        <h2>Our 3 Levels of Impact</h2>
+        <p><strong>Level 1: Business Consulting</strong><br />
+          Providing expert guidance in leadership, strategy, and compliance — especially for veterans, minority founders, and early-stage entrepreneurs.
+        </p>
 
-    <p><strong>Level 1: Business Consulting</strong><br />
-      Providing expert guidance in leadership, strategy, and compliance — especially for veterans, minority founders, and early-stage entrepreneurs.
-    </p>
+        <p><strong>Level 2: Public Partnerships</strong><br />
+          Building powerful business relationships through public and private partnerships that unlock endless opportunities.
+        </p>
 
-    <p><strong>Level 2: Public Partnerships</strong><br />
-      Building powerful business relationships through public and private partnerships that unlock endless opportunities.
-    </p>
-
-    <p><strong>Level 3: Digital Launch</strong><br />
-      Equipping startups with brand identity, content systems, and launch-ready marketing to get seen and scale fast.
-    </p>
-  </section>
+        <p><strong>Level 3: Digital Launch</strong><br />
+          Equipping startups with brand identity, content systems, and launch-ready marketing to get seen and scale fast.
+        </p>
+      </section>
+    </div>
+  </div>
 
   <!-- ===== CTA Button ===== -->
   <div class="cta">
@@ -171,6 +175,5 @@
 
 </body>
 </html>
-
 
 
