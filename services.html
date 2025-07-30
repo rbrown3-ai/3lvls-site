@@ -3,73 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <title>Services | 3LEVELS</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="3LEVELS_logo_favicon.png" type="image/png" />
   <style>
+    :root {
+      --blue: #0077cc;
+      --aqua: #00c2ff;
+      --orange: #ff5e3a;
+      --dark: #1b1f24;
+      --bg: #f9f9fb;
+      --section: #e6edf4;
+      --footer: #d0dae3;
+      --text: #222;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
-      color: #111;
+      background: var(--bg);
+      color: var(--text);
     }
+
     nav {
-      background: #000;
+      background: #002244;
       padding: 15px;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
     }
+
     nav a {
-      color: #fff;
-      margin: 0 20px;
+      color: var(--aqua);
       text-decoration: none;
       font-weight: bold;
+      font-size: 17px;
+      letter-spacing: 0.5px;
+      position: relative;
+      transition: color 0.3s ease;
     }
-    header {
-      background: #111;
+
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: var(--orange);
+      transition: width 0.3s ease;
+      margin: auto;
+      margin-top: 5px;
+    }
+
+    nav a:hover {
       color: #fff;
-      padding: 60px 20px;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    header {
+      background: #fff;
       text-align: center;
+      padding: 80px 20px 40px;
+      border-bottom: 1px solid #eee;
     }
-    header h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
+
+    .logo {
+      width: 380px;
+      max-width: 95%;
     }
-    header p {
-      font-size: 20px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    section {
+
+    .content-section {
+      background: var(--section);
       padding: 60px 20px;
+    }
+
+    .content-inner {
       max-width: 1000px;
       margin: 0 auto;
     }
-    section h2 {
-      font-size: 28px;
-      color: #222;
-      margin-bottom: 10px;
+
+    .content-section h2 {
+      font-size: 32px;
+      color: var(--blue);
+      border-left: 5px solid var(--blue);
+      padding-left: 12px;
+      margin-bottom: 20px;
     }
-    section p {
-      font-size: 16px;
-      line-height: 1.6;
+
+    .content-section p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 18px;
     }
+
     .cta {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 50px;
     }
+
     .cta a {
-      background: #000;
+      background: var(--orange);
       color: #fff;
-      padding: 15px 30px;
+      padding: 16px 36px;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 5px;
+      font-size: 16px;
+      border-radius: 8px;
+      transition: background 0.3s ease, color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    footer {
-      background: #000;
+
+    .cta a:hover {
+      background: var(--blue);
       color: #fff;
+    }
+
+    footer {
+      background: var(--footer);
+      color: #222;
       text-align: center;
-      padding: 20px;
+      padding: 30px 20px;
+      font-size: 15px;
       margin-top: 60px;
+    }
+
+    footer p {
+      margin: 0;
+      font-weight: bold;
+      letter-spacing: 0.5px;
     }
   </style>
 </head>
@@ -83,40 +147,43 @@
   </nav>
 
   <header>
-    <h1>3LEVELS</h1>
-    <p>Fueling growth through vision, structure, and execution.</p>
+    <img src="3LEVELS2_logo_transparent.png" alt="3LEVELS Logo" class="logo" />
   </header>
 
-  <section>
-    <h2>What We Do at 3LEVELS</h2>
-    <p>
-      3LEVELS is one system with three powerful components. Each level builds on the next — whether you're laying a foundation, building relationships, or launching your brand. Together, they form a full-circle path to growth.
-    </p>
-  </section>
+  <div class="content-section">
+    <div class="content-inner">
+      <section>
+        <h2>What We Do at 3LEVELS</h2>
+        <p>
+          3LEVELS is one system with three powerful components. Each level builds on the next — whether you're laying a foundation, building relationships, or launching your brand. Together, they form a full-circle path to growth.
+        </p>
+      </section>
 
-  <section>
-    <h2>Level 1 – Strategy & Structure</h2>
-    <p>
-      We work directly with small business owners, veterans, and entrepreneurs to create strategic blueprints, improve operations, and stay compliant. Whether you’re starting fresh or scaling up, we help you lead your business with confidence. 
-      Our team also integrates AI tools to streamline business planning, generate custom documents, and create data-driven growth plans.
-    </p>
-  </section>
+      <section>
+        <h2>Level 1 – Strategy & Structure</h2>
+        <p>
+          We work directly with small business owners, veterans, and entrepreneurs to create strategic blueprints, improve operations, and stay compliant. Whether you’re starting fresh or scaling up, we help you lead your business with confidence. 
+          Our team also integrates AI tools to streamline business planning, generate custom documents, and create data-driven growth plans.
+        </p>
+      </section>
 
-  <section>
-    <h2>Level 2 – Partnerships & Proximity</h2>
-    <p>
-      This level is all about who you know — and who they know. We help you form public and private partnerships that bring visibility, opportunity, and credibility. 
-      Using AI, we help identify aligned collaborators, generate tailored proposals, and map out strategic growth networks that accelerate your momentum.
-    </p>
-  </section>
+      <section>
+        <h2>Level 2 – Partnerships & Proximity</h2>
+        <p>
+          This level is all about who you know — and who they know. We help you form public and private partnerships that bring visibility, opportunity, and credibility. 
+          Using AI, we help identify aligned collaborators, generate tailored proposals, and map out strategic growth networks that accelerate your momentum.
+        </p>
+      </section>
 
-  <section>
-    <h2>Level 3 – Brand Launch & Digital Presence</h2>
-    <p>
-      Ready to show the world who you are? We build your brand identity, deliver startup kits, and handle your digital media from the ground up. From strategy to design to content — we help you show up sharp and stay consistent.
-      We use advanced AI tools to boost efficiency and stay ahead of trends, but every decision is guided by our experience, strategy, and creative execution. It’s not just about automation — it’s about alignment and results.
-    </p>
-  </section>
+      <section>
+        <h2>Level 3 – Brand Launch & Digital Presence</h2>
+        <p>
+          Ready to show the world who you are? We build your brand identity, deliver startup kits, and handle your digital media from the ground up. From strategy to design to content — we help you show up sharp and stay consistent.
+          We use advanced AI tools to boost efficiency and stay ahead of trends, but every decision is guided by our experience, strategy, and creative execution. It’s not just about automation — it’s about alignment and results.
+        </p>
+      </section>
+    </div>
+  </div>
 
   <div class="cta">
     <a href="contact.html">Let’s Build Something Together</a>
@@ -128,5 +195,6 @@
 
 </body>
 </html>
+
 
 
