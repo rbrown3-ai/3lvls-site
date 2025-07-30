@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Services | 3LEVELS</title>
   <link rel="icon" href="3LEVELS_logo_favicon.png" type="image/png" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
     :root {
       --blue: #0077cc;
@@ -22,6 +23,12 @@
       padding: 0;
       background: var(--bg);
       color: var(--text);
+      opacity: 0;
+      transition: opacity 0.6s ease-in;
+    }
+
+    body.loaded {
+      opacity: 1;
     }
 
     nav {
@@ -72,6 +79,11 @@
     .logo {
       width: 380px;
       max-width: 95%;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
     }
 
     .content-section {
@@ -112,13 +124,14 @@
       font-weight: bold;
       font-size: 16px;
       border-radius: 8px;
-      transition: background 0.3s ease, color 0.3s ease;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
     .cta a:hover {
       background: var(--blue);
       color: #fff;
+      transform: scale(1.05);
     }
 
     footer {
@@ -137,7 +150,7 @@
     }
   </style>
 </head>
-<body>
+<body onload="document.body.classList.add('loaded')">
 
   <nav>
     <a href="index.html">Home</a>
@@ -151,7 +164,7 @@
   </header>
 
   <div class="content-section">
-    <div class="content-inner">
+    <div class="content-inner" data-aos="fade-up">
       <section>
         <h2>What We Do at 3LEVELS</h2>
         <p>
@@ -159,7 +172,7 @@
         </p>
       </section>
 
-      <section>
+      <section data-aos="fade-up">
         <h2>Level 1 – Strategy & Structure</h2>
         <p>
           We work directly with small business owners, veterans, and entrepreneurs to create strategic blueprints, improve operations, and stay compliant. Whether you’re starting fresh or scaling up, we help you lead your business with confidence. 
@@ -167,7 +180,7 @@
         </p>
       </section>
 
-      <section>
+      <section data-aos="fade-up">
         <h2>Level 2 – Partnerships & Proximity</h2>
         <p>
           This level is all about who you know — and who they know. We help you form public and private partnerships that bring visibility, opportunity, and credibility. 
@@ -175,7 +188,7 @@
         </p>
       </section>
 
-      <section>
+      <section data-aos="fade-up">
         <h2>Level 3 – Brand Launch & Digital Presence</h2>
         <p>
           Ready to show the world who you are? We build your brand identity, deliver startup kits, and handle your digital media from the ground up. From strategy to design to content — we help you show up sharp and stay consistent.
@@ -185,7 +198,7 @@
     </div>
   </div>
 
-  <div class="cta">
+  <div class="cta" data-aos="zoom-in">
     <a href="contact.html">Let’s Build Something Together</a>
   </div>
 
@@ -193,8 +206,13 @@
     <p>© 2025 3LEVELS LLC — All rights reserved.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
+
 
 
 
