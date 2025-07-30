@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | 3LEVELS</title>
   <link rel="icon" href="3LEVELS_logo_favicon.png" type="image/png" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
     :root {
       --blue: #0077cc;
@@ -23,6 +24,12 @@
       padding: 0;
       background: var(--bg);
       color: var(--text);
+      opacity: 0;
+      transition: opacity 0.6s ease-in;
+    }
+
+    body.loaded {
+      opacity: 1;
     }
 
     nav {
@@ -73,6 +80,11 @@
     .logo {
       width: 380px;
       max-width: 95%;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
     }
 
     .content-section {
@@ -128,10 +140,12 @@
       font-size: 16px;
       cursor: pointer;
       font-weight: bold;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
 
     form button:hover {
       background: var(--blue);
+      transform: scale(1.03);
     }
 
     footer {
@@ -150,7 +164,7 @@
     }
   </style>
 </head>
-<body>
+<body onload="document.body.classList.add('loaded')">
 
   <nav>
     <a href="index.html">Home</a>
@@ -164,7 +178,7 @@
   </header>
 
   <div class="content-section">
-    <div class="content-inner">
+    <div class="content-inner" data-aos="fade-up">
       <h2>Contact Us</h2>
       <p>Have a question, partnership inquiry, or want to work with us? Reach out below.</p>
 
@@ -190,6 +204,10 @@
     <p>© 2025 3LEVELS LLC — All rights reserved.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
 
