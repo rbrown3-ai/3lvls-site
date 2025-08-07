@@ -1,299 +1,491 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="3LEVELS LLC - Professional business incubator helping startups grow and succeed through expert guidance, resources, and strategic support.">
-    <meta name="keywords" content="business incubator, startup support, entrepreneurship, business development, venture capital">
-    <title>3LEVELS LLC - Business Incubator & Startup Accelerator</title>
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="css/styles.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
-    
-    <!-- Stylesheets -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/mobile.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3LEVELS | Empowering Growth</title>
+  <meta name="description" content="3LEVELS LLC is a multi-tiered business incubator founded by three brothers with a mission to unleash entrepreneurs and small businesses through strategic support, digital tools, and powerful partnerships." />
+  <link rel="icon" href="3LEVELS_logo_favicon.png" type="image/png" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #0077cc;
+      --aqua: #00c2ff;
+      --orange: #ff5e3a;
+      --dark: #1b1f24;
+      --bg: #f9f9fb;
+      --section: #e6edf4;
+      --footer: #d0dae3;
+      --text: #222;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      opacity: 0;
+      transition: opacity 0.6s ease-in;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    /* Navigation */
+    .nav-container {
+      background: #002244;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 100;
+    }
+
+    .nav-link {
+      color: var(--aqua);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 17px;
+      letter-spacing: 0.5px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: var(--orange);
+      transition: width 0.3s ease;
+      margin: auto;
+      margin-top: 5px;
+    }
+
+    .nav-link:hover {
+      color: #fff;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      min-height: 70vh;
+      background: linear-gradient(rgba(0, 34, 68, 0.8), rgba(0, 119, 204, 0.6)), 
+                  url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080') center/cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 80px 20px 40px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      z-index: 2;
+    }
+
+    .logo {
+      width: 380px;
+      max-width: 95%;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+      margin-bottom: 30px;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .hero-tagline {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      color: var(--aqua);
+    }
+
+    .hero-description {
+      font-size: 18px;
+      line-height: 1.6;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      opacity: 0.95;
+    }
+
+    /* Content Sections */
+    .content-section {
+      background: var(--section);
+      padding: 60px 20px;
+      position: relative;
+    }
+
+    .content-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 32px;
+      color: var(--blue);
+      border-left: 5px solid var(--blue);
+      padding-left: 12px;
+      margin-bottom: 20px;
+    }
+
+    .section-text {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 18px;
+    }
+
+    /* Image-enhanced sections */
+    .image-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin: 40px 0;
+      padding: 40px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .image-section.reverse {
+      direction: rtl;
+    }
+
+    .image-section.reverse > * {
+      direction: ltr;
+    }
+
+    .section-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section-image:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .section-content h3 {
+      font-size: 28px;
+      color: var(--blue);
+      margin-bottom: 15px;
+      border-left: 4px solid var(--orange);
+      padding-left: 15px;
+    }
+
+    /* Three Levels Grid */
+    .levels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .level-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .level-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    .level-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .level-content {
+      padding: 25px;
+    }
+
+    .level-number {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .level-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    /* Enhanced CTA Section */
+    .cta-section {
+      position: relative;
+      background: linear-gradient(rgba(255, 94, 58, 0.9), rgba(0, 119, 204, 0.8)), 
+                  url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=600') center/cover;
+      padding: 80px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .cta-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .cta-text {
+      font-size: 18px;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .cta-button {
+      background: white;
+      color: var(--blue);
+      padding: 18px 40px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      background: var(--aqua);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--footer);
+      color: #222;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 15px;
+    }
+
+    .footer p {
+      margin: 0;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: 50vh;
+        padding: 60px 20px 30px;
+      }
+
+      .hero-tagline {
+        font-size: 20px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .image-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .levels-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .section-image {
+        height: 200px;
+      }
+
+      .cta-title {
+        font-size: 28px;
+      }
+
+      .cta-text {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
-<body>
-    <!-- Navigation Header -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <div class="nav__brand">
-                <img src="assets/logo.svg" alt="3LEVELS LLC" class="nav__logo">
-                <span class="nav__title">3LEVELS</span>
-            </div>
-            
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">Home</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="about.html" class="nav__link">About</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="services.html" class="nav__link">Services</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="contact.html" class="nav__link">Contact</a>
-                    </li>
-                </ul>
-                <div class="nav__close" id="nav-close">
-                    <i class="fas fa-times"></i>
-                </div>
-            </div>
-            
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
+<body onload="document.body.classList.add('loaded')">
 
-    <!-- Main Content -->
-    <main class="main">
-        <!-- Hero Section -->
-        <section class="hero section" id="home">
-            <div class="hero__container container grid">
-                <div class="hero__content">
-                    <h1 class="hero__title">
-                        Accelerate Your <span class="hero__title-highlight">Startup Journey</span>
-                    </h1>
-                    <p class="hero__description">
-                        3LEVELS LLC is your strategic partner in building successful businesses. We provide comprehensive incubation services, mentorship, and resources to transform innovative ideas into thriving enterprises.
-                    </p>
-                    <div class="hero__buttons">
-                        <a href="services.html" class="button button--primary">
-                            <i class="fas fa-rocket"></i>
-                            Start Your Journey
-                        </a>
-                        <a href="about.html" class="button button--outline">
-                            <i class="fas fa-info-circle"></i>
-                            Learn More
-                        </a>
-                    </div>
-                    
-                    <div class="hero__stats">
-                        <div class="hero__stat">
-                            <span class="hero__stat-number">50+</span>
-                            <span class="hero__stat-text">Startups Launched</span>
-                        </div>
-                        <div class="hero__stat">
-                            <span class="hero__stat-number">$10M+</span>
-                            <span class="hero__stat-text">Funding Raised</span>
-                        </div>
-                        <div class="hero__stat">
-                            <span class="hero__stat-number">95%</span>
-                            <span class="hero__stat-text">Success Rate</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="hero__image">
-                    <img src="assets/hero-bg.svg" alt="Business Growth Illustration" class="hero__img">
-                </div>
-            </div>
-            
-            <div class="hero__scroll">
-                <a href="#services-preview" class="hero__scroll-button">
-                    <i class="fas fa-chevron-down"></i>
-                </a>
-            </div>
-        </section>
+  <nav class="nav-container">
+    <a href="#home" class="nav-link">Home</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
 
-        <!-- Services Preview Section -->
-        <section class="services-preview section" id="services-preview">
-            <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title">Our Core Services</h2>
-                    <p class="section__description">
-                        Comprehensive support ecosystem designed to nurture your startup from concept to market success
-                    </p>
-                </div>
-                
-                <div class="services-preview__grid">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-card__icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h3 class="service-card__title">Business Development</h3>
-                        <p class="service-card__description">
-                            Strategic planning, market analysis, and business model optimization to ensure sustainable growth.
-                        </p>
-                        <a href="services.html#business-development" class="service-card__link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-card__icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3 class="service-card__title">Mentorship Program</h3>
-                        <p class="service-card__description">
-                            Connect with industry experts and successful entrepreneurs who provide guidance and insights.
-                        </p>
-                        <a href="services.html#mentorship" class="service-card__link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service-card__icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 class="service-card__title">Funding Support</h3>
-                        <p class="service-card__description">
-                            Access to investor networks, pitch preparation, and funding strategy development.
-                        </p>
-                        <a href="services.html#funding" class="service-card__link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <div class="hero-section">
+    <div class="hero-content">
+      <svg 
+        class="logo"
+        viewBox="0 0 380 120" 
+        fill="none" 
+        xmlns="http://www.w3.org/2000/svg"
+        style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3))"
+      >
+        <rect width="380" height="120" fill="white" rx="8"/>
+        <text x="190" y="50" text-anchor="middle" fill="#0077cc" font-size="36" font-weight="bold">3LEVELS</text>
+        <text x="190" y="80" text-anchor="middle" fill="#00c2ff" font-size="16" font-weight="normal">LLC</text>
+        <text x="190" y="100" text-anchor="middle" fill="#ff5e3a" font-size="12" font-weight="normal">EMPOWERING GROWTH</text>
+      </svg>
+      <div class="hero-tagline" data-aos="fade-up" data-aos-delay="200">
+        Empowering Growth Through Strategic Innovation
+      </div>
+      <div class="hero-description" data-aos="fade-up" data-aos-delay="400">
+        Multi-tiered business incubator founded by three brothers with a mission to unleash entrepreneurs and small businesses.
+      </div>
+    </div>
+  </div>
 
-        <!-- Why Choose Us Section -->
-        <section class="why-choose section">
-            <div class="container">
-                <div class="why-choose__container grid">
-                    <div class="why-choose__content">
-                        <h2 class="section__title">Why Choose 3LEVELS?</h2>
-                        <p class="section__description">
-                            We combine deep industry expertise with proven methodologies to deliver exceptional results for our portfolio companies.
-                        </p>
-                        
-                        <div class="features__list">
-                            <div class="feature__item">
-                                <i class="fas fa-check-circle feature__icon"></i>
-                                <div class="feature__content">
-                                    <h4 class="feature__title">Proven Track Record</h4>
-                                    <p class="feature__description">Over 5 years of successfully launching and scaling startups across various industries.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="feature__item">
-                                <i class="fas fa-check-circle feature__icon"></i>
-                                <div class="feature__content">
-                                    <h4 class="feature__title">Expert Network</h4>
-                                    <p class="feature__description">Access to a vast network of industry professionals, investors, and successful entrepreneurs.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="feature__item">
-                                <i class="fas fa-check-circle feature__icon"></i>
-                                <div class="feature__content">
-                                    <h4 class="feature__title">Comprehensive Support</h4>
-                                    <p class="feature__description">End-to-end support from ideation to market launch and beyond.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <a href="about.html" class="button button--primary">
-                            <i class="fas fa-info-circle"></i>
-                            Learn About Our Process
-                        </a>
-                    </div>
-                    
-                    <div class="why-choose__image">
-                        <img src="assets/services-icon.svg" alt="Why Choose 3LEVELS" class="why-choose__img">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="cta section">
-            <div class="container">
-                <div class="cta__container">
-                    <div class="cta__content">
-                        <h2 class="cta__title">Ready to Transform Your Idea?</h2>
-                        <p class="cta__description">
-                            Join our community of successful entrepreneurs and start building your dream business today.
-                        </p>
-                        <div class="cta__buttons">
-                            <a href="contact.html" class="button button--primary button--large">
-                                <i class="fas fa-paper-plane"></i>
-                                Get Started Now
-                            </a>
-                            <a href="services.html" class="button button--outline button--large">
-                                <i class="fas fa-eye"></i>
-                                View Services
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__container grid">
-                <div class="footer__content">
-                    <div class="footer__brand">
-                        <img src="assets/logo.svg" alt="3LEVELS LLC" class="footer__logo">
-                        <span class="footer__title">3LEVELS LLC</span>
-                    </div>
-                    <p class="footer__description">
-                        Empowering entrepreneurs to build successful businesses through strategic guidance, resources, and unwavering support.
-                    </p>
-                    <div class="footer__social">
-                        <a href="#" class="footer__social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="footer__social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="footer__social-link">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer__links">
-                    <h4 class="footer__title">Quick Links</h4>
-                    <ul class="footer__list">
-                        <li><a href="index.html" class="footer__link">Home</a></li>
-                        <li><a href="about.html" class="footer__link">About</a></li>
-                        <li><a href="services.html" class="footer__link">Services</a></li>
-                        <li><a href="contact.html" class="footer__link">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer__links">
-                    <h4 class="footer__title">Services</h4>
-                    <ul class="footer__list">
-                        <li><a href="services.html#business-development" class="footer__link">Business Development</a></li>
-                        <li><a href="services.html#mentorship" class="footer__link">Mentorship</a></li>
-                        <li><a href="services.html#funding" class="footer__link">Funding Support</a></li>
-                        <li><a href="services.html#consulting" class="footer__link">Strategic Consulting</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer__contact">
-                    <h4 class="footer__title">Contact Info</h4>
-                    <div class="footer__contact-info">
-                        <p><i class="fas fa-envelope"></i> hello@3levels.com</p>
-                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                        <p><i class="fas fa-map-marker-alt"></i> New York, NY</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer__bottom">
-                <p class="footer__copy">
-                    &copy; 2025 3LEVELS LLC. All rights reserved.
-                </p>
-            </div>
+  <div class="content-section">
+    <div class="content-inner">
+      
+      <!-- Who We Are Section -->
+      <div class="image-section" data-aos="fade-up">
+        <div class="section-content">
+          <h3>Who We Are</h3>
+          <p>
+            3LEVELS LLC is a multi-tiered business incubator founded by three brothers with a mission to unleash entrepreneurs and small businesses. 
+            Through strategic support, digital tools, and powerful partnerships, we help visionaries build something real.
+          </p>
         </div>
-    </footer>
+        <img 
+          src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+          alt="Professional consulting mentorship session" 
+          class="section-image" 
+        />
+      </div>
 
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
+      <!-- Core Values Section -->
+      <div class="image-section reverse" data-aos="fade-up" data-aos-delay="200">
+        <img 
+          src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+          alt="Entrepreneurs collaboration meeting" 
+          class="section-image" 
+        />
+        <div class="section-content">
+          <h3>Our Core Values</h3>
+          <p><strong>Leadership</strong> – Guiding with clarity, confidence, and purpose.</p>
+          <p><strong>Resilience</strong> – Overcoming obstacles through grit and commitment.</p>
+          <p><strong>Empowerment</strong> – Arming others with tools to succeed and grow.</p>
+        </div>
+      </div>
+
+      <!-- Three Levels Section -->
+      <section data-aos="fade-up" data-aos-delay="300">
+        <h2 class="section-title">Our 3 Levels of Impact</h2>
+        
+        <div class="levels-grid">
+          <!-- Level 1: Business Consulting -->
+          <div class="level-card" data-aos="fade-up" data-aos-delay="100">
+            <img 
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+              alt="Business growth success analytics" 
+              class="level-image" 
+            />
+            <div class="level-content">
+              <div class="level-number">Level 1</div>
+              <div class="level-title">Business Consulting</div>
+              <p>Providing expert guidance in leadership, strategy, and compliance — especially for veterans, minority founders, and early-stage entrepreneurs.</p>
+            </div>
+          </div>
+
+          <!-- Level 2: Public Partnerships -->
+          <div class="level-card" data-aos="fade-up" data-aos-delay="200">
+            <img 
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+              alt="Startup team planning strategy" 
+              class="level-image" 
+            />
+            <div class="level-content">
+              <div class="level-number">Level 2</div>
+              <div class="level-title">Public Partnerships</div>
+              <p>Building powerful business relationships through public and private partnerships that unlock endless opportunities.</p>
+            </div>
+          </div>
+
+          <!-- Level 3: Digital Launch -->
+          <div class="level-card" data-aos="fade-up" data-aos-delay="300">
+            <img 
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+              alt="Innovation technology workspace" 
+              class="level-image" 
+            />
+            <div class="level-content">
+              <div class="level-number">Level 3</div>
+              <div class="level-title">Digital Launch</div>
+              <p>Equipping startups with brand identity, content systems, and launch-ready marketing to get seen and scale fast.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="cta-section" data-aos="zoom-in">
+    <div class="cta-content">
+      <h2 class="cta-title">Ready to Scale Your Vision?</h2>
+      <p class="cta-text">
+        Join successful entrepreneurs who've transformed their ideas into thriving businesses with our proven 3-level approach.
+      </p>
+      <a href="#contact" class="cta-button">
+        Let's Build Something Together
+      </a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 3LEVELS LLC — All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 50
+    });
+  </script>
 </body>
 </html>
