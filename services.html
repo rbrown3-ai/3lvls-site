@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services | 3LEVELS</title>
+  <meta name="description" content="Discover our comprehensive 3-level system: Strategy & Structure, Partnerships & Proximity, and Brand Launch & Digital Presence." />
   <link rel="icon" href="3LEVELS_logo_favicon.png" type="image/png" />
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
@@ -16,7 +18,9 @@
       --footer: #d0dae3;
       --text: #222;
     }
-
+    * {
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Arial', sans-serif;
       margin: 0;
@@ -26,21 +30,21 @@
       opacity: 0;
       transition: opacity 0.6s ease-in;
     }
-
     body.loaded {
       opacity: 1;
     }
-
-    nav {
+    /* Navigation */
+    .nav-container {
       background: #002244;
       padding: 15px;
       display: flex;
       justify-content: center;
       gap: 30px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 100;
     }
-
-    nav a {
+    .nav-link {
       color: var(--aqua);
       text-decoration: none;
       font-weight: bold;
@@ -49,8 +53,7 @@
       position: relative;
       transition: color 0.3s ease;
     }
-
-    nav a::after {
+    .nav-link::after {
       content: '';
       display: block;
       width: 0%;
@@ -60,159 +63,413 @@
       margin: auto;
       margin-top: 5px;
     }
-
-    nav a:hover {
+    .nav-link:hover {
       color: #fff;
     }
-
-    nav a:hover::after {
+    .nav-link:hover::after {
       width: 100%;
     }
-
-    header {
-      background: #fff;
+    /* Services Header */
+    .services-header {
+      background: linear-gradient(45deg, var(--dark), var(--blue));
+      color: white;
       text-align: center;
-      padding: 80px 20px 40px;
-      border-bottom: 1px solid #eee;
+      padding: 100px 20px 80px;
+      position: relative;
+      overflow: hidden;
     }
-
-    .logo {
-      width: 380px;
-      max-width: 95%;
-      transition: transform 0.3s ease;
+    .services-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1664475450500-eab4012be2cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=800') center/cover;
+      opacity: 0.1;
     }
-
-    .logo:hover {
-      transform: scale(1.05);
-    }
-
-    .content-section {
-      background: var(--section);
-      padding: 60px 20px;
-    }
-
-    .content-inner {
-      max-width: 1000px;
+    .services-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
       margin: 0 auto;
     }
-
-    .content-section h2 {
-      font-size: 32px;
-      color: var(--blue);
-      border-left: 5px solid var(--blue);
-      padding-left: 12px;
-      margin-bottom: 20px;
+    .services-logo {
+      width: 320px;
+      max-width: 90%;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
     }
-
-    .content-section p {
+    .services-title {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: var(--aqua);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .services-subtitle {
+      font-size: 20px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    /* Process Flow */
+    .process-flow {
+      padding: 100px 20px;
+      background: var(--bg);
+    }
+    .process-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    /* Connecting Line */
+    .process-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--orange), var(--aqua), var(--blue));
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    /* Service Level Cards */
+    .service-level {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 120px;
+      align-items: center;
+      position: relative;
+    }
+    .service-level:nth-child(even) .service-content {
+      order: 2;
+    }
+    .service-level:nth-child(even) .service-visual {
+      order: 1;
+    }
+    .service-content {
+      padding: 40px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 2;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-content:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    .level-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .level-badge.level-2 {
+      background: var(--aqua);
+    }
+    .level-badge.level-3 {
+      background: var(--blue);
+    }
+    .service-title {
+      font-size: 32px;
+      color: var(--dark);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .service-description {
       font-size: 17px;
       line-height: 1.7;
-      color: #333;
-      margin-bottom: 18px;
+      color: #555;
+      margin-bottom: 25px;
     }
-
-    .cta {
+    .service-features {
+      list-style: none;
+      padding: 0;
+    }
+    .service-features li {
+      padding: 8px 0;
+      color: #666;
+      position: relative;
+      padding-left: 25px;
+    }
+    .service-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+      font-weight: bold;
+    }
+    .service-visual {
+      position: relative;
+      z-index: 2;
+    }
+    .service-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .service-image:hover {
+      transform: scale(1.03);
+    }
+    /* Process Number */
+    .process-number {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: white;
+      border: 4px solid var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--orange);
+      z-index: 3;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .process-number.number-2 {
+      border-color: var(--aqua);
+      color: var(--aqua);
+    }
+    .process-number.number-3 {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+    /* Results Section */
+    .results-section {
+      background: linear-gradient(135deg, var(--orange), var(--blue));
+      color: white;
+      padding: 80px 20px;
       text-align: center;
-      margin-top: 50px;
+      position: relative;
+      overflow: hidden;
     }
-
-    .cta a {
-      background: var(--orange);
-      color: #fff;
-      padding: 16px 36px;
+    .results-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=600') center/cover;
+      opacity: 0.2;
+    }
+    .results-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .results-title {
+      font-size: 42px;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .results-text {
+      font-size: 18px;
+      margin-bottom: 35px;
+      opacity: 0.95;
+      line-height: 1.7;
+    }
+    .results-button {
+      background: white;
+      color: var(--blue);
+      padding: 20px 50px;
       text-decoration: none;
       font-weight: bold;
-      font-size: 16px;
-      border-radius: 8px;
-      transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      font-size: 18px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-
-    .cta a:hover {
-      background: var(--blue);
-      color: #fff;
-      transform: scale(1.05);
+    .results-button:hover {
+      background: var(--aqua);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
     }
-
-    footer {
+    /* Footer */
+    .footer {
       background: var(--footer);
       color: #222;
       text-align: center;
       padding: 30px 20px;
       font-size: 15px;
-      margin-top: 60px;
     }
-
-    footer p {
+    .footer p {
       margin: 0;
       font-weight: bold;
       letter-spacing: 0.5px;
     }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .services-title {
+        font-size: 36px;
+      }
+      .services-subtitle {
+        font-size: 18px;
+      }
+      .service-level {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 80px;
+      }
+      .service-level:nth-child(even) .service-content,
+      .service-level:nth-child(even) .service-visual {
+        order: unset;
+      }
+      .process-line {
+        display: none;
+      }
+      .process-number {
+        position: static;
+        transform: none;
+        margin: 20px auto;
+      }
+      .service-content {
+        padding: 30px;
+      }
+      .service-image {
+        height: 250px;
+      }
+      .results-title {
+        font-size: 32px;
+      }
+    }
   </style>
 </head>
 <body onload="document.body.classList.add('loaded')">
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
+  <nav class="nav-container">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="contact.html" class="nav-link">Contact</a>
   </nav>
-
-  <header>
-    <img src="3LEVELS2_logo_transparent.png" alt="3LEVELS Logo" class="logo" />
-  </header>
-
-  <div class="content-section">
-    <div class="content-inner" data-aos="fade-up">
-      <section>
-        <h2>What We Do at 3LEVELS</h2>
-        <p>
-          3LEVELS is one system with three powerful components. Each level builds on the next — whether you're laying a foundation, building relationships, or launching your brand. Together, they form a full-circle path to growth.
-        </p>
-      </section>
-
-      <section data-aos="fade-up">
-        <h2>Level 1 – Strategy & Structure</h2>
-        <p>
-          We work directly with small business owners, veterans, and entrepreneurs to create strategic blueprints, improve operations, and stay compliant. Whether you’re starting fresh or scaling up, we help you lead your business with confidence. 
-          Our team also integrates AI tools to streamline business planning, generate custom documents, and create data-driven growth plans.
-        </p>
-      </section>
-
-      <section data-aos="fade-up">
-        <h2>Level 2 – Partnerships & Proximity</h2>
-        <p>
-          This level is all about who you know — and who they know. We help you form public and private partnerships that bring visibility, opportunity, and credibility. 
-          Using AI, we help identify aligned collaborators, generate tailored proposals, and map out strategic growth networks that accelerate your momentum.
-        </p>
-      </section>
-
-      <section data-aos="fade-up">
-        <h2>Level 3 – Brand Launch & Digital Presence</h2>
-        <p>
-          Ready to show the world who you are? We build your brand identity, deliver startup kits, and handle your digital media from the ground up. From strategy to design to content — we help you show up sharp and stay consistent.
-          We use advanced AI tools to boost efficiency and stay ahead of trends, but every decision is guided by our experience, strategy, and creative execution. It’s not just about automation — it’s about alignment and results.
-        </p>
-      </section>
+  <div class="services-header">
+    <div class="services-content">
+      <img src="3LEVELS2_logo_transparent.png" alt="3LEVELS Logo" class="services-logo" data-aos="fade-down" />
+      <h1 class="services-title" data-aos="fade-up" data-aos-delay="200">Our 3-Level System</h1>
+      <p class="services-subtitle" data-aos="fade-up" data-aos-delay="400">
+        One system, three powerful components. Each level builds on the next to create a complete path to growth.
+      </p>
     </div>
   </div>
-
-  <div class="cta" data-aos="zoom-in">
-    <a href="contact.html">Let’s Build Something Together</a>
+  <div class="process-flow">
+    <div class="process-container">
+      <div class="process-line"></div>
+      <!-- Level 1 -->
+      <div class="service-level" data-aos="fade-up">
+        <div class="service-content">
+          <div class="level-badge">Level 1</div>
+          <h2 class="service-title">Strategy & Structure</h2>
+          <p class="service-description">
+            We work directly with small business owners, veterans, and entrepreneurs to create strategic blueprints, improve operations, and stay compliant. Whether you're starting fresh or scaling up, we help you lead your business with confidence.
+          </p>
+          <ul class="service-features">
+            <li>Strategic business planning</li>
+            <li>Operational improvements</li>
+            <li>Compliance management</li>
+            <li>AI-powered business tools</li>
+            <li>Custom growth plans</li>
+          </ul>
+        </div>
+        <div class="service-visual">
+          <img 
+            src="https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+            alt="Strategic business planning and structure"
+            class="service-image"
+          />
+        </div>
+        <div class="process-number">1</div>
+      </div>
+      <!-- Level 2 -->
+      <div class="service-level" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-content">
+          <div class="level-badge level-2">Level 2</div>
+          <h2 class="service-title">Partnerships & Proximity</h2>
+          <p class="service-description">
+            This level is all about who you know — and who they know. We help you form public and private partnerships that bring visibility, opportunity, and credibility.
+          </p>
+          <ul class="service-features">
+            <li>Partnership identification</li>
+            <li>Strategic networking</li>
+            <li>Tailored proposals</li>
+            <li>Growth network mapping</li>
+            <li>Collaboration opportunities</li>
+          </ul>
+        </div>
+        <div class="service-visual">
+          <img 
+            src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+            alt="Business partnerships and networking"
+            class="service-image"
+          />
+        </div>
+        <div class="process-number number-2">2</div>
+      </div>
+      <!-- Level 3 -->
+      <div class="service-level" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-content">
+          <div class="level-badge level-3">Level 3</div>
+          <h2 class="service-title">Brand Launch & Digital Presence</h2>
+          <p class="service-description">
+            Ready to show the world who you are? We build your brand identity, deliver startup kits, and handle your digital media from the ground up. From strategy to design to content — we help you show up sharp and stay consistent.
+          </p>
+          <ul class="service-features">
+            <li>Brand identity development</li>
+            <li>Complete startup kits</li>
+            <li>Digital media management</li>
+            <li>Content strategy</li>
+            <li>Consistent brand presence</li>
+          </ul>
+        </div>
+        <div class="service-visual">
+          <img 
+            src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+            alt="Brand development and digital marketing"
+            class="service-image"
+          />
+        </div>
+        <div class="process-number number-3">3</div>
+      </div>
+    </div>
   </div>
-
-  <footer>
+  <div class="results-section" data-aos="zoom-in">
+    <div class="results-content">
+      <h2 class="results-title">Ready to Scale Your Vision?</h2>
+      <p class="results-text">
+        Join successful entrepreneurs who've transformed their ideas into thriving businesses with our proven 3-level approach.
+      </p>
+      <a href="contact.html" class="results-button">Start Your Journey</a>
+    </div>
+  </div>
+  <div class="footer">
     <p>© 2025 3LEVELS LLC — All rights reserved.</p>
-  </footer>
-
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
 </body>
 </html>
-
-
-
 
