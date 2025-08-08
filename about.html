@@ -216,14 +216,37 @@
       position: relative;
       padding-left: 30px;
     }
-    .mindset-quote::before {
-      content: '"';
-      position: absolute;
-      left: 0;
-      top: -10px;
-      font-size: 48px;
-      color: var(--orange);
-      opacity: 0.3;
+    .mindset-quote {
+  font-size: 20px;
+  font-style: italic;
+  color: var(--orange);
+  margin-bottom: 25px;
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* Big opening quote */
+.mindset-quote::before {
+  content: '“';
+  position: absolute;
+  left: 0;
+  top: -10px;
+  font-size: 48px;
+  color: var(--orange);
+  opacity: 0.3;
+}
+
+/* Big closing quote */
+.mindset-quote::after {
+  content: '”';
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  font-size: 48px;
+  color: var(--orange);
+  opacity: 0.3;
+}
     }
     .mindset-text {
       font-size: 17px;
