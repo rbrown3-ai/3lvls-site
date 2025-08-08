@@ -69,111 +69,203 @@
     .nav-link:hover::after {
       width: 100%;
     }
-    /* Hero Section */
-    .hero-section {
-      position: relative;
-      min-height: 70vh;
-      background: linear-gradient(rgba(0, 34, 68, 0.8), rgba(0, 119, 204, 0.6)), 
-                  url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080') center/cover;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    /* Compact Header */
+    .header-section {
+      background: linear-gradient(135deg, var(--blue), var(--aqua));
       text-align: center;
+      padding: 60px 20px 40px;
       color: white;
-      padding: 80px 20px 40px;
-    }
-    .hero-content {
-      max-width: 800px;
-      z-index: 2;
     }
     .logo {
-      width: 380px;
-      max-width: 95%;
-      transition: transform 0.3s ease;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-      margin-bottom: 30px;
-    }
-    .logo:hover {
-      transform: scale(1.05);
-    }
-    .hero-tagline {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 15px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      color: var(--aqua);
-    }
-    .hero-description {
-      font-size: 18px;
-      line-height: 1.6;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-      opacity: 0.95;
-    }
-    /* Content Sections */
-    .content-section {
-      background: var(--section);
-      padding: 60px 20px;
-      position: relative;
-    }
-    .content-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .section-title {
-      font-size: 32px;
-      color: var(--blue);
-      border-left: 5px solid var(--orange);
-      padding-left: 12px;
+      width: 280px;
+      max-width: 90%;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
       margin-bottom: 20px;
     }
-    .section-text {
+    .header-subtitle {
+      font-size: 20px;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+    /* Full-width story section */
+    .story-section {
+      position: relative;
+      padding: 0;
+      background: linear-gradient(rgba(27, 31, 36, 0.8), rgba(27, 31, 36, 0.9)), 
+                  url('https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=800') center/cover;
+      color: white;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+    }
+    .story-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .story-title {
+      font-size: 42px;
+      margin-bottom: 30px;
+      color: var(--aqua);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .story-text {
+      font-size: 19px;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    /* Centered sections with different layouts */
+    .values-section {
+      background: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .values-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .values-header {
+      margin-bottom: 60px;
+    }
+    .values-title {
+      font-size: 36px;
+      color: var(--blue);
+      margin-bottom: 20px;
+    }
+    .values-subtitle {
+      font-size: 18px;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+    .value-item {
+      padding: 30px;
+      background: var(--section);
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .value-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--orange), var(--aqua));
+    }
+    .value-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    .value-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: var(--orange);
+    }
+    .value-name {
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--blue);
+      margin-bottom: 15px;
+    }
+    .value-description {
+      color: #555;
+      line-height: 1.6;
+    }
+    /* Mindset section - different approach */
+    .mindset-section {
+      background: var(--section);
+      padding: 100px 20px;
+      position: relative;
+    }
+    .mindset-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 60px;
+      align-items: center;
+    }
+    .mindset-content {
+      padding-right: 20px;
+    }
+    .mindset-title {
+      font-size: 38px;
+      color: var(--blue);
+      margin-bottom: 30px;
+      border-left: 6px solid var(--orange);
+      padding-left: 20px;
+    }
+    .mindset-quote {
+      font-size: 20px;
+      font-style: italic;
+      color: var(--orange);
+      margin-bottom: 25px;
+      position: relative;
+      padding-left: 30px;
+    }
+    .mindset-quote::before {
+      content: '"';
+      position: absolute;
+      left: 0;
+      top: -10px;
+      font-size: 48px;
+      color: var(--orange);
+      opacity: 0.3;
+    }
+    .mindset-text {
       font-size: 17px;
       line-height: 1.7;
       color: #333;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
-    /* Image-enhanced sections */
-    .image-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-      margin: 40px 0;
-      padding: 40px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .image-section.reverse {
-      direction: rtl;
-    }
-    .image-section.reverse > * {
-      direction: ltr;
-    }
-    .section-image {
+    .mindset-image {
       width: 100%;
-      height: 300px;
+      height: 500px;
       object-fit: cover;
-      border-radius: 8px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
     }
-    .section-image:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    .mindset-image:hover {
+      transform: scale(1.02);
     }
-    .section-content h3 {
-      font-size: 28px;
-      color: var(--blue);
-      margin-bottom: 15px;
-      border-left: 4px solid var(--orange);
-      padding-left: 15px;
+    /* Team highlight section */
+    .team-highlight {
+      background: linear-gradient(135deg, var(--blue), var(--dark));
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .team-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .team-title {
+      font-size: 32px;
+      margin-bottom: 25px;
+      color: var(--aqua);
+    }
+    .team-description {
+      font-size: 18px;
+      line-height: 1.7;
+      opacity: 0.9;
     }
     /* Enhanced CTA Section */
     .cta-section {
       position: relative;
       background: linear-gradient(rgba(255, 94, 58, 0.9), rgba(0, 119, 204, 0.8)), 
-                  url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=600') center/cover;
+                  url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=600') center/cover;
       padding: 80px 20px;
       text-align: center;
       color: white;
@@ -225,29 +317,28 @@
     }
     /* Responsive Design */
     @media (max-width: 768px) {
-      .hero-section {
-        min-height: 50vh;
-        padding: 60px 20px 30px;
+      .story-content {
+        padding: 60px 20px;
       }
-      .hero-tagline {
-        font-size: 20px;
+      .story-title {
+        font-size: 32px;
       }
-      .hero-description {
+      .story-text {
         font-size: 16px;
       }
-      .image-section {
+      .mindset-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .mindset-image {
+        height: 300px;
+      }
+      .values-grid {
         grid-template-columns: 1fr;
         gap: 20px;
-        padding: 20px;
-      }
-      .section-image {
-        height: 200px;
       }
       .cta-title {
         font-size: 28px;
-      }
-      .cta-text {
-        font-size: 16px;
       }
     }
   </style>
@@ -259,71 +350,76 @@
     <a href="services.html" class="nav-link">Services</a>
     <a href="contact.html" class="nav-link">Contact</a>
   </nav>
-  <div class="hero-section">
-    <div class="hero-content">
-      <img src="3LEVELS2_logo_transparent.png" alt="3LEVELS Logo" class="logo" />
-      <div class="hero-tagline" data-aos="fade-up" data-aos-delay="200">
-        Three Brothers. One Mission. Endless Possibilities.
+  <div class="header-section">
+    <img src="3LEVELS2_logo_transparent.png" alt="3LEVELS Logo" class="logo" data-aos="fade-down" />
+    <div class="header-subtitle" data-aos="fade-up" data-aos-delay="200">
+      Our Story. Our Mission. Our Impact.
+    </div>
+  </div>
+  <div class="story-section">
+    <div class="story-content">
+      <h1 class="story-title" data-aos="fade-up">Our Backstory</h1>
+      <p class="story-text" data-aos="fade-up" data-aos-delay="200">
+        We didn't grow up with access to big networks or easy money. What we had was a family that worked hard, stayed together, and always figured things out. We started small — doing side hustles, helping friends with branding, and guiding people through the business process one step at a time.
+      </p>
+      <p class="story-text" data-aos="fade-up" data-aos-delay="300">
+        Over time, our skills sharpened, and our vision grew. Each of us took a different lane — leadership, connection, and digital execution — and 3LEVELS became the way we brought it all together.
+      </p>
+    </div>
+  </div>
+  <div class="values-section">
+    <div class="values-container">
+      <div class="values-header" data-aos="fade-up">
+        <h2 class="values-title">Why 3LEVELS?</h2>
+        <p class="values-subtitle">
+          We didn't build 3LEVELS to be another generic company. We built it because we saw the gap — too many good people with great ideas and no support.
+        </p>
       </div>
-      <div class="hero-description" data-aos="fade-up" data-aos-delay="400">
-        Born from family values, built for business success.
+      <div class="values-grid">
+        <div class="value-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="value-icon">🎯</div>
+          <div class="value-name">Real Help</div>
+          <div class="value-description">Strategic guidance that actually moves the needle, not just theory.</div>
+        </div>
+        <div class="value-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="value-icon">🔧</div>
+          <div class="value-name">Real Structure</div>
+          <div class="value-description">Systems and processes that create sustainable growth and success.</div>
+        </div>
+        <div class="value-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="value-icon">💪</div>
+          <div class="value-name">Real Accountability</div>
+          <div class="value-description">The support and push you need to stay on track and reach your goals.</div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="content-section">
-    <div class="content-inner">
-      
-      <!-- Our Backstory Section -->
-      <div class="image-section" data-aos="fade-up">
-        <div class="section-content">
-          <h3>Our Backstory</h3>
-          <p>
-            We didn't grow up with access to big networks or easy money. What we had was a family that worked hard, stayed together, and always figured things out. We started small — doing side hustles, helping friends with branding, and guiding people through the business process one step at a time.
-          </p>
-          <p>
-            Over time, our skills sharpened, and our vision grew. Each of us took a different lane — leadership, connection, and digital execution — and 3LEVELS became the way we brought it all together.
-          </p>
-        </div>
-        <img 
-          src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-          alt="Brothers working together in business" 
-          class="section-image" 
-        />
+  <div class="mindset-section">
+    <div class="mindset-container">
+      <div class="mindset-content" data-aos="fade-right">
+        <h2 class="mindset-title">Our Mindset</h2>
+        <div class="mindset-quote">Every dream comes with a price tag.</div>
+        <p class="mindset-text">
+          Time. Discipline. Discomfort. Consistency. And if you're not willing to pay it, someone else will. The truth is, you are always making a sacrifice — either you sacrifice distractions and comfort now, or you sacrifice your potential later.
+        </p>
+        <p class="mindset-text">
+          Growth doesn't happen in comfort. It begins the moment you silence excuses, tune out temptations, and move with intention. When your growth matters more than your comfort, everything shifts.
+        </p>
       </div>
-      <!-- Why 3LEVELS Section -->
-      <div class="image-section reverse" data-aos="fade-up" data-aos-delay="200">
-        <img 
-          src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-          alt="Team collaboration and support" 
-          class="section-image" 
-        />
-        <div class="section-content">
-          <h3>Why 3LEVELS?</h3>
-          <p>
-            We didn't build 3LEVELS to be another generic company. We built it because we saw the gap — too many good people with great ideas and no support. We're three brothers who said, "Let's be the system we wish we had."
-          </p>
-          <p>
-            Everything we offer is shaped by that mindset: real help, real structure, real accountability.
-          </p>
-        </div>
-      </div>
-      <!-- Our Mindset Section -->
-      <div class="image-section" data-aos="fade-up" data-aos-delay="300">
-        <div class="section-content">
-          <h3>Our Mindset</h3>
-          <p>
-            Every dream comes with a price tag. Time. Discipline. Discomfort. Consistency. And if you're not willing to pay it, someone else will. The truth is, you are always making a sacrifice — either you sacrifice distractions and comfort now, or you sacrifice your potential later.
-          </p>
-          <p>
-            Growth doesn't happen in comfort. It begins the moment you silence excuses, tune out temptations, and move with intention. When your growth matters more than your comfort, everything shifts.
-          </p>
-        </div>
-        <img 
-          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-          alt="Growth mindset and success analytics" 
-          class="section-image" 
-        />
-      </div>
+      <img 
+        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+        alt="Business growth and success mindset" 
+        class="mindset-image" 
+        data-aos="fade-left"
+      />
+    </div>
+  </div>
+  <div class="team-highlight">
+    <div class="team-content" data-aos="fade-up">
+      <h2 class="team-title">Three Brothers. One Vision.</h2>
+      <p class="team-description">
+        We're three brothers who said, "Let's be the system we wish we had." Everything we offer is shaped by that mindset: helping entrepreneurs and small businesses unlock their potential through strategic support, digital innovation, and powerful partnerships.
+      </p>
     </div>
   </div>
   <div class="cta-section" data-aos="zoom-in">
@@ -344,4 +440,3 @@
   </script>
 </body>
 </html>
-
