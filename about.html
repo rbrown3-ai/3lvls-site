@@ -62,20 +62,39 @@
       width: 100%;
     }
     header {
-      background: #fff;
+      background: linear-gradient(135deg, #fff 0%, #f8faff 100%);
       text-align: center;
       padding: 80px 20px 40px;
       border-bottom: 1px solid #eee;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 194, 255, 0.1), transparent);
+      animation: shimmer 3s infinite;
+    }
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
     }
     .logo {
       width: 380px;
       max-width: 95%;
-      transition: transform 0.3s ease;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+      filter: drop-shadow(0 10px 20px rgba(0, 119, 204, 0.2));
+      position: relative;
+      z-index: 2;
     }
     .logo:hover {
-      transform: scale(1.05);
+      transform: scale(1.08) rotate(1deg);
+      filter: drop-shadow(0 15px 30px rgba(0, 119, 204, 0.3)) 
+              drop-shadow(0 0 20px rgba(255, 94, 58, 0.2));
     }
     .content-section {
       background: var(--section);
@@ -141,7 +160,7 @@
     <a href="contact.html">Contact</a>
   </nav>
   <header>
-    <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Professional Business Team Collaboration" class="logo" />
+    <img src="3LEVELS2_logo_transparent.png" alt="3LEVELS Logo" class="logo" />
   </header>
   <div class="content-section">
     <div class="content-inner" data-aos="fade-up">
