@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | 3LEVELS</title>
+  <meta name="description" content="Get in touch with 3LEVELS. Contact us for partnership inquiries, business consulting, or any questions." />
   <link rel="icon" href="3LEVELS_logo_favicon.png" type="image/png" />
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
@@ -17,7 +18,9 @@
       --footer: #d0dae3;
       --text: #222;
     }
-
+    * {
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Arial', sans-serif;
       margin: 0;
@@ -26,13 +29,15 @@
       color: var(--text);
       opacity: 0;
       transition: opacity 0.6s ease-in;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-
     body.loaded {
       opacity: 1;
     }
-
-    nav {
+    /* Navigation */
+    .nav-container {
       background: #002244;
       padding: 15px;
       display: flex;
@@ -40,8 +45,7 @@
       gap: 30px;
       flex-wrap: wrap;
     }
-
-    nav a {
+    .nav-link {
       color: var(--aqua);
       text-decoration: none;
       font-weight: bold;
@@ -50,8 +54,7 @@
       position: relative;
       transition: color 0.3s ease;
     }
-
-    nav a::after {
+    .nav-link::after {
       content: '';
       display: block;
       width: 0%;
@@ -61,154 +64,186 @@
       margin: auto;
       margin-top: 5px;
     }
-
-    nav a:hover {
+    .nav-link:hover {
       color: #fff;
     }
-
-    nav a:hover::after {
+    .nav-link:hover::after {
       width: 100%;
     }
-
-    header {
-      background: #fff;
-      text-align: center;
-      padding: 80px 20px 40px;
-      border-bottom: 1px solid #eee;
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
     }
-
+    .contact-container {
+      max-width: 500px;
+      width: 100%;
+      background: white;
+      padding: 60px 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      text-align: center;
+    }
     .logo {
-      width: 380px;
-      max-width: 95%;
+      width: 200px;
+      max-width: 80%;
+      margin-bottom: 30px;
       transition: transform 0.3s ease;
     }
-
     .logo:hover {
       transform: scale(1.05);
     }
-
-    .content-section {
-      background: var(--section);
-      padding: 60px 20px;
-    }
-
-    .content-inner {
-      max-width: 700px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-    }
-
-    .content-section h2 {
-      font-size: 32px;
+    .contact-title {
+      font-size: 28px;
       color: var(--blue);
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .content-section p {
-      font-size: 17px;
-      color: #444;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    form label {
+      margin-bottom: 15px;
       font-weight: bold;
-      display: block;
-      margin-bottom: 8px;
     }
-
-    form input, form textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-
-    form button {
-      width: 100%;
-      background: var(--orange);
-      color: white;
-      padding: 14px;
-      border: none;
-      border-radius: 4px;
+    .contact-subtitle {
       font-size: 16px;
-      cursor: pointer;
+      color: #666;
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+    /* Form Styles */
+    .contact-form {
+      text-align: left;
+    }
+    .form-group {
+      margin-bottom: 25px;
+    }
+    .form-group label {
+      display: block;
       font-weight: bold;
-      transition: background 0.3s ease, transform 0.3s ease;
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 14px;
     }
-
-    form button:hover {
-      background: var(--blue);
-      transform: scale(1.03);
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      background: #fafafa;
     }
-
-    footer {
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--aqua);
+      box-shadow: 0 0 0 3px rgba(0, 194, 255, 0.1);
+      background: white;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .submit-button {
+      width: 100%;
+      background: linear-gradient(45deg, var(--orange), var(--blue));
+      color: white;
+      padding: 18px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 10px;
+    }
+    .submit-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .submit-button:active {
+      transform: translateY(0);
+    }
+    /* Footer */
+    .footer {
       background: var(--footer);
       color: #222;
       text-align: center;
-      padding: 30px 20px;
-      font-size: 15px;
-      margin-top: 60px;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: auto;
     }
-
-    footer p {
+    .footer p {
       margin: 0;
       font-weight: bold;
       letter-spacing: 0.5px;
     }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .contact-container {
+        padding: 40px 30px;
+        margin: 20px;
+      }
+      .contact-title {
+        font-size: 24px;
+      }
+      .contact-subtitle {
+        font-size: 15px;
+      }
+      .main-content {
+        padding: 40px 20px;
+      }
+    }
+    @media (max-width: 480px) {
+      .contact-container {
+        padding: 30px 20px;
+      }
+      .form-group input,
+      .form-group textarea {
+        padding: 12px;
+      }
+    }
   </style>
 </head>
 <body onload="document.body.classList.add('loaded')">
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
+  <nav class="nav-container">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="contact.html" class="nav-link">Contact</a>
   </nav>
-
-  <header>
-    <img src="3LEVELS2_logo_transparent.png" alt="3LEVELS Logo" class="logo" />
-  </header>
-
-  <div class="content-section">
-    <div class="content-inner" data-aos="fade-up">
-      <h2>Contact Us</h2>
-      <p>Have a question, partnership inquiry, or want to work with us? Reach out below.</p>
-
-      <form action="https://formsubmit.co/info@3lvls.com" method="POST">
+  <div class="main-content">
+    <div class="contact-container" data-aos="fade-up">
+      <img src="3LEVELS2_logo_transparent.png" alt="3LEVELS Logo" class="logo" />
+      
+      <h1 class="contact-title">Let's Connect</h1>
+      <p class="contact-subtitle">Ready to take your business to the next level? Get in touch.</p>
+      <form class="contact-form" action="https://formsubmit.co/info@3lvls.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="box">
-
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-
-        <button type="submit">Send Message</button>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your project or how we can help..." required></textarea>
+        </div>
+        <button type="submit" class="submit-button">Send Message</button>
       </form>
     </div>
   </div>
-
-  <footer>
+  <div class="footer">
     <p>© 2025 3LEVELS LLC — All rights reserved.</p>
-  </footer>
-
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
 </body>
 </html>
-
-
